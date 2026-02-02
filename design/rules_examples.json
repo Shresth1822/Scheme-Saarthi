@@ -1,0 +1,20 @@
+[
+  {
+    "scheme_id": "uuid-placeholder-1",
+    "description": "PM Kisan Samman Nidhi",
+    "rules": {
+      "beneficiary_type": { "must_be_in": ["Farmer"] },
+      "income": { "max": 20000000 },
+      "land_holding": { "max_hectares": 2 }
+    }
+  },
+  {
+    "scheme_id": "uuid-placeholder-2",
+    "description": "Old Age Pension",
+    "rules": {
+      "age": { "min": 60 },
+      "income": { "max": 50000 },
+      "state": { "must_match": "Delhi" }
+    }
+  }
+]
