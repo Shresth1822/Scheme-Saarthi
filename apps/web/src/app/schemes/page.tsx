@@ -62,7 +62,9 @@ export default function SchemesPage() {
               type="text"
               placeholder="Search by name, ministry relative..."
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setQuery(e.target.value)
+              }
               className="bg-white dark:bg-slate-900"
             />
             <Button size="icon">
