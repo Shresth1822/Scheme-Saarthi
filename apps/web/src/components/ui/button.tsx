@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot"; // Wait, I didn't install radix slot. I'll stick to simple or install it?
+
 // Actually, for now, simple button without polymorphic 'asChild' to save time unless I install radix-slot.
 // I'll skip slot for now.
 
@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 // For now, I will write standard Tailwind button.
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "outline" | "ghost" | "secondary";
+  variant?: "default" | "outline" | "ghost" | "secondary" | "link";
   size?: "default" | "sm" | "lg" | "icon";
 }
 
@@ -29,6 +29,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       outline:
         "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
       ghost: "hover:bg-accent hover:text-accent-foreground",
+      link: "text-primary underline-offset-4 hover:underline",
     };
 
     // Sizes
