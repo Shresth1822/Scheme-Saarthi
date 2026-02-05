@@ -1,0 +1,12 @@
+{
+  "name": "scheme-saarthi-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix apps/web\" \"uvicorn index:app --reload --app-dir api\"",
+    "install:all": "npm install && npm install --prefix apps/web && pip install -r api/requirements.txt && pip install -r packages/scraper/requirements.txt"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
