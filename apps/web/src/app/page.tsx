@@ -11,12 +11,12 @@ export default function Home() {
           SchemeSaarthi
         </div>
         <div className="flex gap-4">
-          <Link href="/login">
-            <Button variant="ghost">Login</Button>
-          </Link>
-          <Link href="/schemes">
-            <Button>Explore Schemes</Button>
-          </Link>
+          <Button variant="ghost" asChild>
+            <Link href="/login">Login</Link>
+          </Button>
+          <Button asChild>
+            <Link href="/schemes">Explore Schemes</Link>
+          </Button>
         </div>
       </header>
 
@@ -39,11 +39,15 @@ export default function Home() {
           </p>
 
           <div className="flex justify-center gap-4 pt-4">
-            <Link href="/schemes">
-              <Button size="lg" className="rounded-full text-lg h-14 px-10">
+            <Button
+              size="lg"
+              className="rounded-full text-lg h-14 px-10"
+              asChild
+            >
+              <Link href="/schemes">
                 Check Eligibility <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </section>
 

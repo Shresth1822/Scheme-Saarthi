@@ -1,22 +1,25 @@
-import * as React from "react";
-
-// Actually, for now, simple button without polymorphic 'asChild' to save time unless I install radix-slot.
-// I'll skip slot for now.
-
+import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
-// import { cva, type VariantProps } from "class-variance-authority" // Didn't install cva either.
-// I'll write simple manual variant logic to avoid too many deps for now, or just install cva?
-// "Premium designs" usually need good variants.
-// I will perform a quick install of cva and radix-slot in next step to make it robust.
-// For now, I will write standard Tailwind button.
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "outline" | "ghost" | "secondary" | "link";
   size?: "default" | "sm" | "lg" | "icon";
+  asChild?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "default", size = "default", ...props }, ref) => {
+  (
+    {
+      className,
+      variant = "default",
+      size = "default",
+      asChild = false,
+      ...props
+    },
+    ref,
+  ) => {
+    const Comp = asChild ? Slot : "button";
+
     // Base styles
     const base =
       "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
@@ -41,7 +44,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     return (
-      <button
+      <Comp
         className={cn(base, variants[variant], sizes[size], className)}
         ref={ref}
         {...props}
