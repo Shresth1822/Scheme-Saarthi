@@ -5,14 +5,7 @@ import { Input } from "@/components/ui/input"; // Need to create Input
 import { Button } from "@/components/ui/button";
 import { SchemeCard } from "@/components/SchemeCard";
 import { Search } from "lucide-react";
-import { createClient } from "@supabase/supabase-js";
-
-// -- Mock Supabase Client for client-side (until context is fully set) --
-// In a real app, use the one from src/data/api.ts or context
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "",
-);
+import { supabase } from "@/data/api";
 
 export default function SchemesPage() {
   const [query, setQuery] = useState("");
